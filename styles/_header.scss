@@ -1,7 +1,40 @@
 .header {
+  @include breakpoint-down(medium) {
+    width: 100%;
+    background-color: $white;
+    top: 0;
+    position: fixed;
+  }
+
+  &.active {
+
+    .header__toggle > span {
+
+      &:first-child {
+        transform: rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:last-child {
+        transform: rotate(-45deg);
+      }
+    }
+
+    .overlay {
+      animation: fade-in .2s ease-in-out forwards;
+    }
+
+    .header__menu {
+      transform: scale(1);
+    }
+  }
 
   nav {
-    padding: 1.0625rem 1.5rem;
+    padding-top: 1.0625rem;
+    padding-bottom: 1.0625rem;
   }
 
   &__ {
@@ -14,22 +47,24 @@
       }
     }
 
-    &menu { // Burger Menu for mobile layout
+    &toggle { // Burger Menu for mobile layout
 
       > span {
         display: block;
         width: 26px;
         height: 2px;
         background-color: $darkBlue;
+        transform-origin: 4.5px 1px;
+        transition: transform .3s ease-in-out, opacity .2s ease;
 
         &:not(:last-child) {
-          margin-bottom: 3px;
+          margin-bottom: 4px;
         }
       }
+
     }
 
     &links {
-
       a {
         position: relative;
         color: $grayishBlue;
@@ -70,27 +105,46 @@
 
       &:hover {
         opacity: 1;
-        -webkit-animation: Animation 5s ease infinite;
-        -moz-animation: Animation 5s ease infinite;
-        animation: Animation 5s ease infinite;
+      }
+    }
+
+    &menu {
+      width: calc(100% - 3rem);
+      position: absolute;
+      margin: 1.5rem 1.5rem 0 1.5rem;
+      padding: 1.5rem 1.625rem;
+      background-color: $white;
+      border-radius: 3px;
+      transform: scale(0);
+      transition: transform .2s ease-in-out;
+      
+      a {
+        display: block;
+        padding: 0.625rem 4.625rem;
+        color: $darkBlue;
+        text-align: center;
+        transition: color .3s ease-in-out;
+
+        &:focus {
+          color: $grayishBlue;
+        }
       }
     }
   }
+
+  .overlay {
+    position: fixed;
+    background-image: linear-gradient(to bottom, $darkBlue, #fff);
+    top: 3.5rem;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    animation: fade-out .3s ease-in-out forwards;
+  } 
 }
 
-
-@-webkit-keyframes Animation {
-  0%{background-position:10% 0%}
-  50%{background-position:91% 100%}
-  100%{background-position:10% 0%}
-}
-@-moz-keyframes Animation {
-  0%{background-position:10% 0%}
-  50%{background-position:91% 100%}
-  100%{background-position:10% 0%}
-}
-@keyframes Animation { 
-  0%{background-position:10% 0%}
-  50%{background-position:91% 100%}
-  100%{background-position:10% 0%}
+.page {
+  @include breakpoint-down(medium) {
+    margin-top: 56px;
+  }
 }
