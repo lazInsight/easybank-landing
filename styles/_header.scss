@@ -1,4 +1,5 @@
 .header {
+  z-index: 999;
   @include breakpoint-down(medium) {
     width: 100%;
     background-color: $white;
@@ -54,7 +55,7 @@
         width: 26px;
         height: 2px;
         background-color: $darkBlue;
-        transform-origin: 4.5px 1px;
+        transform-origin: 4.5px;
         transition: transform .3s ease-in-out, opacity .2s ease;
 
         &:not(:last-child) {
@@ -95,16 +96,6 @@
             left: 0;
           }
         }
-      }
-    }
-
-    &cta {
-      color: $white;
-      opacity: 0.75;
-      transition: opacity .3s ease-in-out;
-
-      &:hover {
-        opacity: 1;
       }
     }
 

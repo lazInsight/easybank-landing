@@ -23,6 +23,12 @@ body {
   }
 }
 
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
 //  Links
 a,
 a:visited,
@@ -32,8 +38,22 @@ a:hover {
 }
 
 .container {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  max-width: 69.375rem;
+  margin: 0 auto;
+
+  &--pall {
+    padding: 2.25rem 1.5rem;
+  }
+
+  &--pv {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  &--ph {
+    padding-top: 2.25rem;
+    padding-bottom: 2.25rem;
+  }
 }
 
 //  Buttons
@@ -46,6 +66,12 @@ button,
   border-radius: 50px;
   cursor: pointer;
   font-weight: 400;
+  opacity: 0.75;
+  transition: opacity .3s ease-in-out;
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
 
