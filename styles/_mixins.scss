@@ -1,10 +1,6 @@
 // Breakpoints
 // to get em value need divide window size to default font size,
 // for example 1024 on 16 = 64em
-@media (min-width: 64em) {
-  // code...
-}
-
 // 640px, 1024px, 1400px
 $breakpoints-up: ("medium": "40em", "large": "64em", "xlarge": "87.5em");
 
